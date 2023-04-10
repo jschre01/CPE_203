@@ -1,0 +1,24 @@
+Jonathan Schreiber
+Ambigious methods and their placement
+
+getCurrentImage: I put this method in both Background and Entity, as the method checks whether the passed object is an instance of either first. Therefore, if it is known what object is being passed prior to calling the method, it is more efficient to make it a non-static method that lives both inside the Background and Entity class, so that it works for both objects. 
+
+execute*Activity: I put these methods in the Entity class. This is because the primary parameter that the method works on is entity. In addition, the parameters of the method match up with the parameters in the entity class. It could have justifiably put in the WorldModel class or EventScheduler class, but I felt that the entity class was a better fit for these methods. 
+
+transformFull/transformNotFull: I put these methods in the WorldModel class. It would make sense for these methods to be in the entity class as well, as then there wouldn't be all of the required accessor methods, yet it works well in the WorldModel class as well, as worldModel was a parameter that was passed through. Therefore, the method was able to be made non-static as a part of the worldModel class. 
+
+addEntity: I put this method in the WorldModel class. This is because if one is constructing a "WorldModel", an addEntity method should be able to be a part of it, as adding entities to the world seems like it would be something that occurs often. The only other option was in the entity class itself, which would have also made sense, except that an entity would have to call "addEntity" to add itself to another class. 
+
+nextPosition* (Miner, OreBlob): I put this method in the entity class. This is because ultimately it is looking for specific entities, and given that looking for the next position is not inherently an attibute of a point, it would make sense to make it a non-static method of entity. 
+
+withinBounds: I put this method in WorldModel. This is because the worldModel is what is in charge of creating the map, it makes sense for a withinBounds method to be an attribute of the worldModel itself, instead of making it a part of the point class. However, given that this method should be non-static, worldModel and Point were the only options, thus I chose worldModel. 
+
+shift: I put shift in viewport so that I could make it non-static. The only other parameters in this method are both primitive data types (ints), meaning that the only class this method could be a part of is viewport. 
+
+shiftView: I put shiftView in World View. Like shift, the only other parameters in this method are both primitive data types (int). Therefore, to make it non-static the only class that it could live in is the WorldView class. 
+
+executeAction: ExecuteAction I put in the Action class. To make it non-static, I was down between the Action and EventScheduler classes. I figured that the Action class did not have many methods yet, and "executing an action" seems more like an attribute of "Action" then it would for "EventScheduler" (I would think that methods like 'scheduleActions' or 'unscheduleAllEvents' would be in "EventScheduler").
+
+scheduleActions: I put scheduleActions in the EventScheduler class. This was because of the name of the method. Although it could feasibly be in Entity or WorldModel, I decided that 'scheduleActions' is a method that should live in the "EventScheduler" class, as scheduling actions seems like something that would be the event schedulers task. However, this was a method that took me a long time to decide on, as I was able to get my code to work just fine while having it live in several different classes. 
+
+
