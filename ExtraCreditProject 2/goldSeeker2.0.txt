@@ -1,0 +1,14 @@
+I created a game called goldSeeker2.0 for my extra credit project. The purpose of the game is to collect more gold than your opponent(cpu). There are 3 levels. 
+Level 1:
+
+The map is mostly grass, trees, and water. Obstacles cannot be passed through, but can be eliminated by hitting the spacebar. Water cannont be passed through. In level 1, it is almost impossible to lose as the "detective" you are up against has no help and has a singlestep search algorithm implemented, making it easy to collect more gold than him. (The level ends when all of the gold is collected, then it is computed who has more. If it is a tie, you must repeat the level.)
+
+Level 2:
+There is now an FBI Agent who is doing the searching. They have the AStar Algorithm implemented, so they are a lot faster and more efficient. They also have a wolf that stalks you and tries to steal your gold and give it back to the FBI Agent. 
+
+Level 3: 
+There is now a terminator who is searching. He is not only wicked fast but is implementing a new search strategy. He is still using AStar, but instead of just taing the first step he follows it for the first 5 steps or all the way (whicheve is sooner). This algorithm is almost impossible to beat. He also has a terminator Dog who takes 2 gold from you instead of 1, and is much faster than the Wolf. This level is insanely hard, I have only passed it once. 
+
+obstacles can be taken out by clicking on the space bar. This is very important as the map is randomly generated each time, so there are cases when gold gets trapped and the only way is to remove obstacles. 
+
+I hope you enjoy playing goldSeeker2.0, and good luck defeating the terminator!!
